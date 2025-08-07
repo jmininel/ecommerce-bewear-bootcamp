@@ -39,6 +39,38 @@ const Home = async () => {
        />
      </div>
 
+
+   
+<div className="bg-white p-8 md:p-12 lg:p-16 rounded-xl">
+  <div className="px-5">
+    <p className="text-2xl font-bold text-gray-900 mb-6">Marcas parceiras</p>
+    <div className="flex gap-5 md:gap-8 justify-center">
+      
+      {/* Componente da Nike */}
+      <div className="border border-gray-300 p-4 rounded-xl flex items-center justify-center w-32 h-20">
+        <Image src="/nike.svg" alt="marca nike" width={50} height={50} />
+      </div>
+
+      {/* Componente da Adidas */}
+      <div className="border border-gray-300 p-4 rounded-xl flex items-center justify-center w-32 h-20">
+        <Image src="/adidas.svg" alt="marca adidas" width={50} height={50} />
+      </div>
+
+      {/* Componente da Puma */}
+      <div className="border border-gray-300 p-4 rounded-xl flex items-center justify-center w-32 h-20">
+        <Image src="/puma.svg" alt="marca puma" width={50} height={50} />
+      </div>
+
+      {/* Componente da New Balance */}
+      <div className="border border-gray-300 p-4 rounded-xl flex items-center justify-center w-32 h-20">
+        <Image src="/newbalance.svg" alt="marca new balance" width={50} height={50} />
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+       
          <ProductList products={products} title="Mais vendidos"/>
 
           <div>
