@@ -28,10 +28,11 @@ const CartItem = ({
   productVariantPriceInCents,
   quantity,
 }: CartItemProps) => {
+  
   const removeProductFromCartMutation = useRemoveProductFromCart(id);
   const decreaseCartProductQuantityMutation = useDecreaseCartProduct(id);
-  const increaseCartProductQuantityMutation =
-    useIncreaseCartProduct(productVariantId);
+  const increaseCartProductQuantityMutation = useIncreaseCartProduct(productVariantId);
+
   const handleDeleteClick = () => {
     removeProductFromCartMutation.mutate(undefined, {
       onSuccess: () => {
