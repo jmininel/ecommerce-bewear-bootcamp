@@ -9,8 +9,8 @@ interface CategorySelectorProps {
 
 const CategorySelector = ({ categories }: CategorySelectorProps) => {
   return (
-    <div className="rounded-3xl bg-[#F4EFFF] p-6">
-      <div className="grid grid-cols-2 gap-3">
+    <div className="mx-auto w-full max-w-7xl rounded-3xl bg-[#F4EFFF] p-6 lg:px-8">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
         {categories.map((category) => (
           <Button
             key={category.id}

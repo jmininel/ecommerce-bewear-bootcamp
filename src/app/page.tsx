@@ -28,8 +28,8 @@ const Home = async () => {
   return (
   <>
      <Header/>
-      <div className="space-y-6">
-        <div className="px-5">
+      <div className="space-y-10 pb-10">
+        <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
           <Image
               src="/banner-01.png"
               alt="Leve uma vida com estilo"
@@ -42,28 +42,28 @@ const Home = async () => {
 
 
    
- <div className="bg-white  md:p-12 lg:p-16 rounded-xl">
-  <div >
-    <h3 className="px-5 font-semibold text-gray-900 mb-5 ">Marcas parceiras</h3>
-    <div className="flex gap-5 md:gap-8 justify-center">
+ <div className="mx-auto w-full max-w-7xl rounded-xl bg-white px-5 md:p-12 lg:px-8 lg:py-10">
+  <div>
+    <h3 className="mb-5 font-semibold text-gray-900">Marcas parceiras</h3>
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-8">
       
      
-      <div className="border border-gray-300 p-4 rounded-xl flex items-center justify-center w-full h-30">
+      <div className="flex h-30 w-full items-center justify-center rounded-xl border border-gray-300 p-4">
         <Image src="/nike.svg" alt="marca nike" width={50} height={50} />
       </div>
 
    
-      <div className="border border-gray-300 p-4 rounded-xl flex items-center justify-center w-full  h-30">
+      <div className="flex h-30 w-full items-center justify-center rounded-xl border border-gray-300 p-4">
         <Image src="/adidas.svg" alt="marca adidas" width={50} height={50} />
       </div>
 
      
-      <div className="border border-gray-300 p-4 rounded-xl flex items-center justify-center w-full h-30">
+      <div className="flex h-30 w-full items-center justify-center rounded-xl border border-gray-300 p-4">
         <Image src="/puma.svg" alt="marca puma" width={50} height={50} />
       </div>
 
     
-      <div className="border border-gray-300 p-4 rounded-xl flex items-center justify-center w-full h-30">
+      <div className="flex h-30 w-full items-center justify-center rounded-xl border border-gray-300 p-4">
         <Image src="/newbalance.svg" alt="marca new balance" width={50} height={50} />
       </div>
       
@@ -73,13 +73,13 @@ const Home = async () => {
 
          <ProductList products={products} title="Mais vendidos"/>
 
-           <div className="lg:hidden">
+           <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
             <CategorySelector categories={categories}/>
           </div>
 
 
          {/* Banner Único para Mobile */}
-       <div className="px-5 lg:hidden">
+      <div className="mx-auto w-full max-w-7xl px-5 lg:hidden">
           <Image
             src="/banner-02.png"
             alt="Leve uma vida com estilo"
@@ -91,7 +91,7 @@ const Home = async () => {
        </div>
 
        {/* Banners em Grid para Desktop */}
-       <div className="hidden px-5 lg:block">
+      <div className="mx-auto hidden w-full max-w-7xl px-5 lg:block lg:px-8">
            <div className="grid grid-cols-2 gap-4">
                {/* Lado Esquerdo - Duas imagens */}
                <div className="space-y-4">
@@ -126,9 +126,12 @@ const Home = async () => {
                </div>
            </div>
        </div>
-         <div className="lg:hidden">
+        <div className="lg:hidden">
             <ProductList products={newlyCreatedProducts} title="Novos produtos" />
          </div>
+        <div className="hidden lg:block">
+          <ProductList products={newlyCreatedProducts} title="Novos produtos" />
+        </div>
         <Footer/>
     </div>
   </>

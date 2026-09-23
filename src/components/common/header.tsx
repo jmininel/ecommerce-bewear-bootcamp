@@ -21,15 +21,37 @@ import { Cart } from "./cart";
 export const Header = () => {
   const { data: session } = authClient.useSession();
   return (
-    <header className="flex items-center justify-between p-5">
+    <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 lg:px-8">
       <Link href="/">
         <Image src="/logo.svg" alt="BEWEAR" width={100} height={26.14} />
       </Link>
 
+      <nav className="hidden items-center gap-8 text-sm font-medium lg:flex">
+        <Link href="/" className="transition-colors hover:text-primary">
+          Início
+        </Link>
+        <Link
+          href="/product"
+          className="transition-colors hover:text-primary"
+        >
+          Produtos
+        </Link>
+        {session?.user ? (
+          <span className="text-muted-foreground">Olá, {session.user.name}</span>
+        ) : (
+          <Link
+            href="/authentication"
+            className="transition-colors hover:text-primary"
+          >
+            Entrar
+          </Link>
+        )}
+      </nav>
+
       <div className="flex items-center gap-3">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon">
+            <Button variant="outline" size="icon" className="lg:hidden">
               <MenuIcon />
             </Button>
           </SheetTrigger>
