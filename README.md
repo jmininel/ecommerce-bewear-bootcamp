@@ -76,17 +76,6 @@ Este projeto foi desenvolvido com o objetivo de aprimorar conhecimentos em:
 
 ### Ferramentas
 
-## 📂 Estrutura do Projeto
-
-```bash
-src
-├── actions
-├── app
-├── components
-├── db
-├── helpers
-├── hooks
-├── lib
 
 ## ⚙️ Como Executar o Projeto
 
@@ -121,4 +110,11 @@ npm run dev
 Este projeto permitiu aprofundar conhecimentos em desenvolvimento Frontend através da implementação de funcionalidades comuns em aplicações reais de e-commerce, como autenticação de usuários, gerenciamento de carrinho de compras, consumo de APIs, controle de estado global, navegação entre páginas e construção de interfaces responsivas.
 
 Além disso, foram aplicadas boas práticas de componentização, tipagem com TypeScript, organização de código e experiência do usuário, simulando cenários encontrados no mercado de desenvolvimento web.
+
+## 👩‍💻 Desenvolvido por
+
+**Juliana Mininel**
+
+Frontend Developer • React • Next.js • TypeScript
+
 
