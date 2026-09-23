@@ -31,7 +31,8 @@ export const auth = betterAuth({
     modelName: "verificationTable",
   },
    trustedOrigins: [
-    "https://glowing-trout-grrv5p4xpwwhg4x-3000.app.github.dev",
+    "http://bookish-journey-pww5g6j7g9r36gg5-3000.app.github.dev",
     "https://localhost:3000",
   ],
 });
+
