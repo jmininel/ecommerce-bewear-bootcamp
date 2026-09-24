@@ -29,7 +29,7 @@ const Home = async () => {
   <>
      <Header/>
       <div className="space-y-10 pb-10">
-        <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto w-full max-w-5xl px-5 lg:px-8">
           <Image
               src="/banner-01.png"
               alt="Leve uma vida com estilo"
@@ -121,7 +121,7 @@ const Home = async () => {
                        width={0}
                        height={0}
                        sizes="50vw"
-                       className="w-full h-full object-cover"
+                       className="w-full h-full"
                    />
                </div>
            </div>

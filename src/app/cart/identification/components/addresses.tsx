@@ -167,10 +167,10 @@ const Addresses = ({
         )}
 
         {selectedAddress && selectedAddress !== "add_new" && (
-          <div className="mt-4">
+          <div className="mt-4 flex justify-end">
             <Button
               onClick={handleGoToPayment}
-              className="w-full"
+              className="h-11 w-full max-w-sm self-center text-sm"
               disabled={updateCartShippingAddressMutation.isPending}
             >
               {updateCartShippingAddressMutation.isPending
@@ -365,7 +365,7 @@ const Addresses = ({
 
               <Button
                 type="submit"
-                className="w-full"
+                className="h-11 w-full max-w-sm self-center text-sm"
                 disabled={
                   createShippingAddressMutation.isPending ||
                   updateCartShippingAddressMutation.isPending

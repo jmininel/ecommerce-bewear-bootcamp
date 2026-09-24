@@ -30,7 +30,7 @@ const FinishOrderButton = () => {
   return (
     <>
       <Button
-        className="w-full rounded-full"
+        className="h-11 w-full max-w-sm self-center rounded-full text-sm"
         size="lg"
         onClick={handleFinishOrder}
         disabled={finishOrderMutation.isPending}
