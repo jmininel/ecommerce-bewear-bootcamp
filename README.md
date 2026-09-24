@@ -12,6 +12,12 @@ Bootcamp FullStackClub
 
 ---
 
+## Preview
+
+![Preview do Portfólio](./public/bewear.gif)
+
+---
+
 ## 📖 Sobre o Projeto
 
 O BEWEAR é uma aplicação Frontend desenvolvida com foco em boas práticas de desenvolvimento utilizando NextJs e TypeScript.
@@ -29,6 +35,7 @@ Este projeto foi desenvolvido com o objetivo de aprimorar conhecimentos em:
 * Desenvolvimento de interfaces responsivas
 * Drizzle ORM
 * Figma
+* Stripe para pagamentos
 
 ## ✨ Funcionalidades
 
