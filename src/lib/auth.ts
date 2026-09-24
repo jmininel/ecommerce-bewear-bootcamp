@@ -4,6 +4,12 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "@/db";
 import * as schema from "@/db/schema";
 
+const trustedOrigins = [
+  "http://localhost:3000",
+  process.env.NEXT_PUBLIC_APP_URL,
+  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined,
+].filter((origin): origin is string => Boolean(origin));
+
 export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
@@ -30,9 +36,6 @@ export const auth = betterAuth({
   verification: {
     modelName: "verificationTable",
   },
-   trustedOrigins: [
-    "http://bookish-journey-pww5g6j7g9r36gg5-3000.app.github.dev",
-    "https://localhost:3000",
-  ],
+  trustedOrigins,
 });
 
