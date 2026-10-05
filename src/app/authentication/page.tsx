@@ -14,22 +14,24 @@ const Authentication = async () => {
   <>
      <Header/>
 
-      <div className="flex w-full flex-col gap-6 p-5">
-        <Tabs defaultValue="sign-in">
-         <TabsList>
-            <TabsTrigger value="sign-in">Entrar</TabsTrigger>
-            <TabsTrigger value="sign-up">Criar conta</TabsTrigger>
-         </TabsList>
+      <main className="flex min-h-[calc(100svh-4rem)] w-full items-center justify-center px-4 py-8">
+        <section className="w-full max-w-sm">
+          <Tabs className="w-full" defaultValue="sign-in">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="sign-in">Entrar</TabsTrigger>
+              <TabsTrigger value="sign-up">Criar conta</TabsTrigger>
+            </TabsList>
 
-         <TabsContent value="sign-in" className="w-full">
-            <SignInForm />
-          </TabsContent>
+            <TabsContent value="sign-in" className="w-full">
+              <SignInForm />
+            </TabsContent>
 
-        <TabsContent value="sign-up"  className="w-full">
-           <SignUpForm/>
-        </TabsContent>
-      </Tabs>
-    </div>
+            <TabsContent value="sign-up" className="w-full">
+              <SignUpForm />
+            </TabsContent>
+          </Tabs>
+        </section>
+      </main>
   </>
   )
 }

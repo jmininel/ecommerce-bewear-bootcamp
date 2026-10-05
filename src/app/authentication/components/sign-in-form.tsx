@@ -80,11 +80,13 @@ const SignInForm = () => {
   };
   return (
     <>
-      <Card className="w-full">
-        <CardHeader>
-          <CardTitle>Entrar</CardTitle>
-          <CardDescription>Faça login para continuar.</CardDescription>
-        </CardHeader>
+   <Card className="mx-auto w-full max-w-[360px]">
+  <CardHeader className="space-y-1 pb-4">
+    <CardTitle className="text-xl">Entrar</CardTitle>
+    <CardDescription className="text-sm">
+      Faça login para continuar.
+    </CardDescription>
+  </CardHeader>
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
