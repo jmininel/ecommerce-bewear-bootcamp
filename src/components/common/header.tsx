@@ -2,8 +2,10 @@
 
 import { LogInIcon, LogOutIcon, MenuIcon } from "lucide-react";
 import Image from "next/image";
-
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "sonner";
 
 import { authClient } from "@/lib/auth-client";
 
@@ -20,6 +22,31 @@ import { Cart } from "./cart";
 
 export const Header = () => {
   const { data: session } = authClient.useSession();
+  const router = useRouter();
+  const [isSigningOut, setIsSigningOut] = useState(false);
+
+  const handleSignOut = async () => {
+    setIsSigningOut(true);
+    try {
+      await authClient.signOut({
+        fetchOptions: {
+          onSuccess: () => {
+            toast.success("Você saiu da sua conta.");
+            router.replace("/");
+            router.refresh();
+          },
+          onError: (context) => {
+            toast.error(context.error.message || "Não foi possível sair.");
+            setIsSigningOut(false);
+          },
+        },
+      });
+    } catch {
+      toast.error("Não foi possível sair. Tente novamente.");
+      setIsSigningOut(false);
+    }
+  };
+
   return (
     <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 lg:px-8">
       <Link href="/">
@@ -45,6 +72,17 @@ export const Header = () => {
           >
             Entrar
           </Link>
+        )}
+        {session?.user && (
+          <Button
+            variant="ghost"
+            size="sm"
+            disabled={isSigningOut}
+            onClick={handleSignOut}
+          >
+            <LogOutIcon />
+            LogOut
+          </Button>
         )}
       </nav>
 
@@ -84,7 +122,9 @@ export const Header = () => {
                     <Button
                       variant="outline"
                       size="icon"
-                      onClick={() => authClient.signOut()}
+                      aria-label="Sair da conta"
+                      disabled={isSigningOut}
+                      onClick={handleSignOut}
                     >
                       <LogOutIcon />
                     </Button>
