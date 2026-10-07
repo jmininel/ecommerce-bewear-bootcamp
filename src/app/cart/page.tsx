@@ -1,14 +1,18 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 import Footer from "@/components/common/footer";
 import { Header } from "@/components/common/header";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { db } from "@/db";
+import { formatCentsToBRL } from "@/helpers/money";
 import { auth } from "@/lib/auth";
 
-import CartSummary from "./components/cart-summary";
+import CartSummaryItemActions from "./components/cart-summary-item-actions";
 
 const CartPage = async () => {
   const session = await auth.api.getSession({
@@ -64,18 +68,68 @@ const CartPage = async () => {
           </Button>
         </div>
 
-        <CartSummary
-          subtotalInCents={cartTotalInCents}
-          totalInCents={cartTotalInCents}
-          products={cart.items.map((item) => ({
-            id: item.productVariant.id,
-            name: item.productVariant.product.name,
-            variantName: item.productVariant.name,
-            quantity: item.quantity,
-            priceInCents: item.productVariant.priceInCents,
-            imageUrl: item.productVariant.imageUrl,
-          }))}
-        />
+        <Card>
+          <CardHeader>
+            <CardTitle>Resumo</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="flex justify-between">
+              <p className="text-sm">Subtotal</p>
+              <p className="text-muted-foreground text-sm font-medium">
+                {formatCentsToBRL(cartTotalInCents)}
+              </p>
+            </div>
+            <div className="flex justify-between">
+              <p className="text-sm">Frete</p>
+              <p className="text-muted-foreground text-sm font-medium">
+                GRÁTIS
+              </p>
+            </div>
+            <div className="flex justify-between">
+              <p className="text-sm">Total</p>
+              <p className="text-muted-foreground text-sm font-medium">
+                {formatCentsToBRL(cartTotalInCents)}
+              </p>
+            </div>
+
+            <div className="py-3">
+              <Separator />
+            </div>
+
+            {cart.items.map((item) => (
+              <div
+                className="flex items-center justify-between"
+                key={item.productVariant.id}
+              >
+                <div className="flex items-center gap-4">
+                  <Image
+                    src={item.productVariant.imageUrl}
+                    alt={item.productVariant.product.name}
+                    width={78}
+                    height={78}
+                    className="rounded-3xl"
+                  />
+                  <div className="flex flex-col gap-1">
+                    <p className="text-sm font-semibold">
+                      {item.productVariant.product.name}
+                    </p>
+                    <p className="text-muted-foreground text-xs font-medium">
+                      {item.productVariant.name}
+                    </p>
+                    <CartSummaryItemActions
+                      cartItemId={item.id}
+                      productVariantId={item.productVariant.id}
+                      quantity={item.quantity}
+                    />
+                  </div>
+                </div>
+                <p className="text-sm font-bold">
+                  {formatCentsToBRL(item.productVariant.priceInCents)}
+                </p>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
 
         <div className="flex justify-end">
           <Button className="w-full max-w-sm" asChild>
