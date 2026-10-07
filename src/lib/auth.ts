@@ -6,6 +6,8 @@ import * as schema from "@/db/schema";
 
 const trustedOrigins = [
   "http://localhost:3000",
+  "https://localhost:3000",
+  "https://ecommerce-bewear-bootcamp.vercel.app",
   process.env.NEXT_PUBLIC_APP_URL,
   process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined,
 ].filter((origin): origin is string => Boolean(origin));
@@ -38,4 +40,3 @@ export const auth = betterAuth({
   },
   trustedOrigins,
 });
-
