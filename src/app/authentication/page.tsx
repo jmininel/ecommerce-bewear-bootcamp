@@ -14,7 +14,7 @@ const Authentication = async () => {
   <>
      <Header/>
 
-      <main className="flex min-h-[calc(100svh-4rem)] w-full items-center justify-center px-4 py-8">
+      <main className="flex min-h-[calc(100svh-4rem)] w-full items-start justify-center px-4 py-8">
         <section className="w-full max-w-sm">
           <Tabs className="w-full" defaultValue="sign-in">
             <TabsList className="grid w-full grid-cols-2">
