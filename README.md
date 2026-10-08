@@ -4,17 +4,9 @@ Aplicação de e-commerce desenvolvida para simular uma experiência real de com
 
 Bootcamp FullStackClub
 
-## 🚀 Demonstração
-
-🔗 Deploy: Adicione aqui o link da aplicação
-
-🔗 Repositório: https://github.com/jmininel/ecommerce-bewear-bootcamp
-
----
-
 ## Preview
 
-![Preview do Portfólio](./public/bewear.gif)
+![Preview do Portfólio](./public/bewearApp.gif)
 
 ---
 
